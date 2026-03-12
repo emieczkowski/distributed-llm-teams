@@ -1,0 +1,28 @@
+{
+  "task_id": "rest_api",
+  "category": "mixed",
+  "project_description": "Build a REST API for a simple e-commerce backend. The project needs: (1) data models for User and Product with validation and type hints, (2) a database layer with CRUD operations that uses the data models, (3) an authentication module with JWT token generation and validation that is independent of the database or models, (4) unit tests for the data models, and (5) integration tests that exercise the full API including both the database layer and authentication. The models must be defined before the database layer or unit tests can be built, but the auth module has no dependency on models or database.",
+  "ground_truth": {
+    "expected_subtasks": [
+      {"id": "models", "description": "Create User and Product data models"},
+      {"id": "database", "description": "Implement database CRUD using models"},
+      {"id": "auth", "description": "Build JWT authentication module"},
+      {"id": "unit_tests", "description": "Write unit tests for models"},
+      {"id": "integration_tests", "description": "Write integration tests for full API"}
+    ],
+    "expected_dependencies": [
+      ["models", "database"],
+      ["models", "unit_tests"],
+      ["database", "integration_tests"],
+      ["auth", "integration_tests"]
+    ],
+    "expected_phases": {
+      "1": ["models", "auth"],
+      "2": ["database", "unit_tests"],
+      "3": ["integration_tests"]
+    },
+    "optimal_num_workers": 3,
+    "min_num_workers": 2,
+    "parallelism_ratio": 0.6
+  }
+}

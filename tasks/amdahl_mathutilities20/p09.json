@@ -1,0 +1,228 @@
+{
+  "project": "Math Utils Library",
+  "description": "Implement 20 math utility functions. Tasks 1-2 form a 2-step dependency chain (safe_add imports from add). Tasks 3-20 are fully independent — none calls any other function in this library and all can be started in any order.\n\nFILE PLACEMENT (CRITICAL): Each task creates exactly ONE .py file. Place every file directly in the repo root — do NOT create subdirectories or packages (no __init__.py, no subfolders). For example, task-1 creates repo/add.py, task-2 creates repo/safe_add.py, etc. The test suite imports directly from these flat files.",
+  "repository": "repo",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement add function",
+      "description": "Create add.py containing add(a: float, b: float) -> float. Returns a + b. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["add.py"]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement safe_add function",
+      "description": "Create safe_add.py containing safe_add(a: float, b: float) -> float. Validates that both a and b are int or float (raise TypeError if not), then delegates to add(a, b) imported from add.py. Include a one-line docstring. REQUIRES task-1 (add) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 2,
+      "dependencies": ["task-1"],
+      "files": ["safe_add.py"]
+    },
+    {
+      "id": "task-3",
+      "title": "Implement subtract function",
+      "description": "Create subtract.py containing subtract(a: float, b: float) -> float. Returns a - b. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["subtract.py"]
+    },
+    {
+      "id": "task-4",
+      "title": "Implement multiply function",
+      "description": "Create multiply.py containing multiply(a: float, b: float) -> float. Returns a * b. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["multiply.py"]
+    },
+    {
+      "id": "task-5",
+      "title": "Implement divide function",
+      "description": "Create divide.py containing divide(a: float, b: float) -> float. Returns a / b. Raise ValueError if b is zero. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["divide.py"]
+    },
+    {
+      "id": "task-6",
+      "title": "Implement abs_val function",
+      "description": "Create abs_val.py containing abs_val(x: float) -> float. Returns the absolute value of x without using the built-in abs(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["abs_val.py"]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement is_even function",
+      "description": "Create is_even.py containing is_even(n: int) -> bool. Returns True if n is even, False otherwise. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["is_even.py"]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement clamp function",
+      "description": "Create clamp.py containing clamp(x: float, lo: float, hi: float) -> float. Returns x clamped to the range [lo, hi]. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["clamp.py"]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement sign function",
+      "description": "Create sign.py containing sign(x: float) -> int. Returns 1 if x > 0, -1 if x < 0, 0 if x == 0. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["sign.py"]
+    },
+    {
+      "id": "task-10",
+      "title": "Implement max_val function",
+      "description": "Create max_val.py containing max_val(a: float, b: float) -> float. Returns the larger of a and b without using the built-in max(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["max_val.py"]
+    },
+    {
+      "id": "task-11",
+      "title": "Implement min_val function",
+      "description": "Create min_val.py containing min_val(a: float, b: float) -> float. Returns the smaller of a and b without using the built-in min(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["min_val.py"]
+    },
+    {
+      "id": "task-12",
+      "title": "Implement square function",
+      "description": "Create square.py containing square(x: float) -> float. Returns x * x. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["square.py"]
+    },
+    {
+      "id": "task-13",
+      "title": "Implement cube function",
+      "description": "Create cube.py containing cube(x: float) -> float. Returns x ** 3. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["cube.py"]
+    },
+    {
+      "id": "task-14",
+      "title": "Implement reciprocal function",
+      "description": "Create reciprocal.py containing reciprocal(x: float) -> float. Returns 1 / x. Raise ValueError if x is zero. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["reciprocal.py"]
+    },
+    {
+      "id": "task-15",
+      "title": "Implement is_positive function",
+      "description": "Create is_positive.py containing is_positive(x: float) -> bool. Returns True if x > 0, False otherwise. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["is_positive.py"]
+    },
+    {
+      "id": "task-16",
+      "title": "Implement is_negative function",
+      "description": "Create is_negative.py containing is_negative(x: float) -> bool. Returns True if x < 0, False otherwise. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["is_negative.py"]
+    },
+    {
+      "id": "task-17",
+      "title": "Implement is_zero function",
+      "description": "Create is_zero.py containing is_zero(x: float) -> bool. Returns True if x == 0, False otherwise. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["is_zero.py"]
+    },
+    {
+      "id": "task-18",
+      "title": "Implement negate function",
+      "description": "Create negate.py containing negate(x: float) -> float. Returns -x. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["negate.py"]
+    },
+    {
+      "id": "task-19",
+      "title": "Implement double function",
+      "description": "Create double.py containing double(x: float) -> float. Returns x * 2. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["double.py"]
+    },
+    {
+      "id": "task-20",
+      "title": "Implement half function",
+      "description": "Create half.py containing half(x: float) -> float. Returns x / 2. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["half.py"]
+    }
+  ],
+  "success_criteria": "All 20 functions implemented in separate files. Tasks 1-2 form a 2-step chain (safe_add imports add). Tasks 3-20 are fully independent. A pre-written test suite is already in the repo as test_suite.py — run <run_tests /> to see results. All tests must pass before marking a task complete."
+}

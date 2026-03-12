@@ -1,0 +1,270 @@
+{
+  "project": "SVG Utils Library",
+  "description": "Implement 20 SVG utility functions. Tasks 1-2 form a 2-step dependency chain (fmt_coord imports from fmt_num). Tasks 3-20 are fully independent. Each function lives in its own .py file and returns an SVG string fragment. Each function must be written as a single flat .py file directly in the repository root (e.g. repo/fmt_num.py \u2014 not repo/svg_utils/fmt_num.py). Do not create packages, subdirectories, or __init__.py files. Use absolute imports (e.g. from fmt_num import fmt_num), not relative imports.",
+  "success_criteria": "All 20 functions pass their unit tests.",
+  "repository": "repo/",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement fmt_num",
+      "description": "Create fmt_num.py containing fmt_num(n: float) -> str. Formats a number for use in SVG attributes. If n % 1 == 0, return str(int(n)) (e.g. 5.0 -> '5'). Otherwise return f'{n:.4f}'.rstrip('0') (e.g. 3.14 -> '3.14', 3.1 -> '3.1'). No imports from other task files.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "fmt_num.py"
+      ]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement fmt_coord",
+      "description": "Create fmt_coord.py containing fmt_coord(x: float, y: float) -> str. Returns a coordinate pair string 'x,y' using fmt_num for each value. Example: fmt_coord(10, 20) -> '10,20', fmt_coord(1.5, 2.5) -> '1.5,2.5'. Import: from fmt_num import fmt_num. REQUIRES task-1 (fmt_num) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 2,
+      "dependencies": [
+        "task-1"
+      ],
+      "files": [
+        "fmt_coord.py"
+      ]
+    },
+    {
+      "id": "task-3",
+      "title": "Implement fmt_points",
+      "description": "Create fmt_points.py containing fmt_points(points: list) -> str. Takes a list of (x, y) tuples and returns a space-separated coordinate string. Example: fmt_points([(0,0),(10,10)]) -> '0,0 10,10'. Import: from fmt_coord import fmt_coord. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "fmt_points.py"
+      ]
+    },
+    {
+      "id": "task-4",
+      "title": "Implement make_polyline",
+      "description": "Create make_polyline.py containing make_polyline(points: list, stroke: str = 'black', stroke_width: int = 1) -> str. Returns an SVG polyline element: <polyline points=\"{pts}\" stroke=\"{stroke}\" stroke-width=\"{stroke_width}\" fill=\"none\"/>. Import: from fmt_points import fmt_points. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_polyline.py"
+      ]
+    },
+    {
+      "id": "task-5",
+      "title": "Implement make_polygon",
+      "description": "Create make_polygon.py containing make_polygon(points: list, fill: str = 'none', stroke: str = 'black') -> str. Returns an SVG polygon element: <polygon points=\"{pts}\" fill=\"{fill}\" stroke=\"{stroke}\"/>. Import: from fmt_points import fmt_points. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_polygon.py"
+      ]
+    },
+    {
+      "id": "task-6",
+      "title": "Implement make_triangle",
+      "description": "Create make_triangle.py containing make_triangle(x1: float, y1: float, x2: float, y2: float, x3: float, y3: float, fill: str = 'none', stroke: str = 'black') -> str. Returns a polygon SVG element with the three given vertices. Calls make_polygon([(x1,y1),(x2,y2),(x3,y3)], fill=fill, stroke=stroke). Import: from make_polygon import make_polygon. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_triangle.py"
+      ]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement make_rect",
+      "description": "Create make_rect.py containing make_rect(x: float, y: float, w: float, h: float, fill: str = 'none', stroke: str = 'black') -> str. Returns <rect x=\"{x}\" y=\"{y}\" width=\"{w}\" height=\"{h}\" fill=\"{fill}\" stroke=\"{stroke}\"/> using fmt_num for numeric values. Import: from fmt_num import fmt_num. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_rect.py"
+      ]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement make_circle",
+      "description": "Create make_circle.py containing make_circle(cx: float, cy: float, r: float, fill: str = 'none', stroke: str = 'black') -> str. Returns <circle cx=\"{cx}\" cy=\"{cy}\" r=\"{r}\" fill=\"{fill}\" stroke=\"{stroke}\"/> using fmt_num for numeric values. Import: from fmt_num import fmt_num. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_circle.py"
+      ]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement make_text",
+      "description": "Create make_text.py containing make_text(x: float, y: float, content: str, font_size: int = 12, fill: str = 'black') -> str. Returns <text x=\"{x}\" y=\"{y}\" font-size=\"{font_size}\" fill=\"{fill}\">{content}</text> using fmt_num for x and y. Import: from fmt_num import fmt_num. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_text.py"
+      ]
+    },
+    {
+      "id": "task-10",
+      "title": "Implement make_group",
+      "description": "Create make_group.py containing make_group(children: list, transform: str = '') -> str. Joins children (list of SVG strings) and wraps in <g>...</g>. If transform is non-empty, include transform=\"{transform}\" attribute: <g transform=\"{transform}\">...</g>. If transform is empty, return <g>...</g> with no transform attribute. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_group.py"
+      ]
+    },
+    {
+      "id": "task-11",
+      "title": "Implement make_labeled_group",
+      "description": "Create make_labeled_group.py containing make_labeled_group(children: list, label: str, lx: float, ly: float) -> str. Takes four separate arguments: children (list of SVG strings), label (str), lx (float, x position of the label), ly (float, y position of the label). Creates a group containing all children plus a text label element positioned at (lx, ly). Call make_text(lx, ly, label) then return make_group(children + [text_elem]). Imports: from make_group import make_group, from make_text import make_text.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_labeled_group.py"
+      ]
+    },
+    {
+      "id": "task-12",
+      "title": "Implement make_grid",
+      "description": "Create make_grid.py containing make_grid(items: list, cols: int, cell_w: int, cell_h: int) -> str. Lays out SVG items in a grid. Each item is wrapped in make_group([item], transform='translate(col*cell_w, row*cell_h)'). Returns make_group of all positioned items. Import: from make_group import make_group. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_grid.py"
+      ]
+    },
+    {
+      "id": "task-13",
+      "title": "Implement make_bar_chart",
+      "description": "Create make_bar_chart.py containing make_bar_chart(data: list, x: int, y: int, w: int, h: int) -> str. Renders a simple bar chart: each value in data becomes a proportional <rect> bar with fill='steelblue'. Bar width = w // len(data). Bar height scales proportionally to h. Returns make_group([...bars...]). Imports: from make_rect import make_rect, from make_group import make_group. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_bar_chart.py"
+      ]
+    },
+    {
+      "id": "task-14",
+      "title": "Implement make_title",
+      "description": "Create make_title.py containing make_title(text: str, x: float, y: float, font_size: int = 16) -> str. Returns a bold, centered SVG text element for use as a chart title. Must include font-weight=\"bold\" and text-anchor=\"middle\" attributes. Call make_text(x, y, text, font_size=font_size) and inject the extra attributes. Import: from make_text import make_text. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_title.py"
+      ]
+    },
+    {
+      "id": "task-15",
+      "title": "Implement make_legend",
+      "description": "Create make_legend.py containing make_legend(items: list, x: float, y: float) -> str. items is a list of (label, color) tuples. For each item, creates a 14x14 color swatch (make_rect) and a text label (make_text) spaced 20px apart vertically. Returns make_group([...all swatches and labels...]). Imports: from make_rect import make_rect, from make_text import make_text, from make_group import make_group. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_legend.py"
+      ]
+    },
+    {
+      "id": "task-16",
+      "title": "Implement make_svg",
+      "description": "Create make_svg.py containing make_svg(width: int, height: int, children: list, title: str = '') -> str. Returns a complete SVG document string. Wraps children in make_group([]), then builds: <svg width=\"{width}\" height=\"{height}\" xmlns=\"http://www.w3.org/2000/svg\">{title_tag}{group}</svg>. Include <title>{title}</title> only when title is non-empty. Import: from make_group import make_group. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_svg.py"
+      ]
+    },
+    {
+      "id": "task-17",
+      "title": "Implement make_line",
+      "description": "Create make_line.py containing make_line(x1: float, y1: float, x2: float, y2: float, stroke: str = 'black', stroke_width: int = 1) -> str. Returns <line x1=\"{x1}\" y1=\"{y1}\" x2=\"{x2}\" y2=\"{y2}\" stroke=\"{stroke}\" stroke-width=\"{stroke_width}\"/> using fmt_num for coordinate values. Import: from fmt_num import fmt_num. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_line.py"
+      ]
+    },
+    {
+      "id": "task-18",
+      "title": "Implement make_ellipse",
+      "description": "Create make_ellipse.py containing make_ellipse(cx: float, cy: float, rx: float, ry: float, fill: str = 'none', stroke: str = 'black') -> str. Returns <ellipse cx=\"{cx}\" cy=\"{cy}\" rx=\"{rx}\" ry=\"{ry}\" fill=\"{fill}\" stroke=\"{stroke}\"/> using fmt_num for numeric values. Import: from fmt_num import fmt_num. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_ellipse.py"
+      ]
+    },
+    {
+      "id": "task-19",
+      "title": "Implement make_path",
+      "description": "Create make_path.py containing make_path(d: str, fill: str = 'none', stroke: str = 'black') -> str. Takes a pre-formatted SVG path data string d and returns <path d=\"{d}\" fill=\"{fill}\" stroke=\"{stroke}\"/>. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_path.py"
+      ]
+    },
+    {
+      "id": "task-20",
+      "title": "Implement make_comment",
+      "description": "Create make_comment.py containing make_comment(text: str) -> str. Returns an SVG/XML comment string: '<!-- {text} -->'. Example: make_comment('hello') -> '<!-- hello -->'. No dependency on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "make_comment.py"
+      ]
+    }
+  ]
+}

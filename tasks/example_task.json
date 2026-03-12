@@ -1,0 +1,82 @@
+{
+  "project": "Math Utilities Library",
+  "description": "Create a simple Python library with basic math utilities and comprehensive tests",
+  "repository": "test_repo",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement addition and subtraction functions",
+      "description": "Create math_utils.py with add(a, b) and subtract(a, b) functions. Include docstrings and type hints.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "math_utils.py"
+      ]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement multiplication and division functions",
+      "description": "Add multiply(a, b) and divide(a, b) functions to math_utils.py. Handle division by zero gracefully.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": [
+        "math_utils.py"
+      ]
+    },
+    {
+      "id": "task-3",
+      "title": "Write unit tests for basic operations",
+      "description": "Create test_math_utils.py with pytest tests covering all four basic operations. Include edge cases.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 2,
+      "dependencies": [
+        "task-1",
+        "task-2"
+      ],
+      "files": [
+        "test_math_utils.py"
+      ]
+    },
+    {
+      "id": "task-4",
+      "title": "Add power and square root functions",
+      "description": "Implement power(base, exp) and sqrt(n) in math_utils.py with appropriate error handling.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 3,
+      "dependencies": [
+        "task-1"
+      ],
+      "files": [
+        "math_utils.py"
+      ]
+    },
+    {
+      "id": "task-5",
+      "title": "Create README documentation",
+      "description": "Write README.md with library overview, installation, usage examples, and API documentation.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 4,
+      "dependencies": [
+        "task-1",
+        "task-2",
+        "task-4"
+      ],
+      "files": [
+        "README.md"
+      ]
+    }
+  ],
+  "success_criteria": "All tasks completed, all tests passing, documentation complete"
+}

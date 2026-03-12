@@ -1,0 +1,107 @@
+{
+  "project": "Text Utilities Library",
+  "description": "Implement 9 string utility functions, ALL in a single shared file: text_utils.py.\n\nFILE PLACEMENT (CRITICAL): Every task writes to the SAME file — text_utils.py — in the repo root. Do NOT create any other files or packages.\n\nIMPORTANT: When you write text_utils.py, always include ALL functions you have implemented so far. Do not discard work from previous tasks — the final file must contain all 9 functions.\n\nAll 9 functions and their exact signatures:\n  def capitalize_words(s: str) -> str\n  def count_words(s: str) -> int\n  def truncate(s: str, max_len: int, ellipsis: str = '...') -> str\n  def is_palindrome(s: str) -> bool\n  def reverse_words(s: str) -> str\n  def count_vowels(s: str) -> int\n  def slugify(s: str) -> str\n  def strip_punctuation(s: str) -> str\n  def word_frequency(s: str) -> dict",
+  "success_criteria": "All 9 functions are present and correct in text_utils.py. The full test suite passes.",
+  "repository": "repo",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement capitalize_words",
+      "description": "Add capitalize_words(s: str) -> str to text_utils.py. Capitalizes the first letter of every whitespace-separated word. Example: capitalize_words('hello world') == 'Hello World'. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement count_words",
+      "description": "Add count_words(s: str) -> int to text_utils.py. Returns the number of whitespace-separated words in s. An empty string or whitespace-only string returns 0. Example: count_words('hello world') == 2. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-3",
+      "title": "Implement truncate",
+      "description": "Add truncate(s: str, max_len: int, ellipsis: str = '...') -> str to text_utils.py. If len(s) <= max_len, return s unchanged. Otherwise return s[:max_len - len(ellipsis)] + ellipsis. If max_len <= len(ellipsis), return ellipsis[:max_len]. Example: truncate('hello world', 8) == 'hello...'. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-4",
+      "title": "Implement is_palindrome",
+      "description": "Add is_palindrome(s: str) -> bool to text_utils.py. Strips whitespace, lowercases, and checks if the result reads the same forwards and backwards. Example: is_palindrome('Racecar') == True, is_palindrome('hello') == False. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-5",
+      "title": "Implement reverse_words",
+      "description": "Add reverse_words(s: str) -> str to text_utils.py. Reverses the ORDER of whitespace-separated words (not the characters). Example: reverse_words('hello world foo') == 'foo world hello'. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-6",
+      "title": "Implement count_vowels",
+      "description": "Add count_vowels(s: str) -> int to text_utils.py. Counts occurrences of a, e, i, o, u (case-insensitive). Example: count_vowels('Hello World') == 3. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement slugify",
+      "description": "Add slugify(s: str) -> str to text_utils.py. Converts a string to a URL-friendly slug: lowercase, spaces replaced with hyphens, all characters that are not alphanumeric or hyphens removed, collapse multiple hyphens to one, strip leading/trailing hyphens. Example: slugify('Hello, World!') == 'hello-world'. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement strip_punctuation",
+      "description": "Add strip_punctuation(s: str) -> str to text_utils.py. Removes all characters in Python's string.punctuation from s. Example: strip_punctuation('Hello, World!') == 'Hello World'. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement word_frequency",
+      "description": "Add word_frequency(s: str) -> dict to text_utils.py. Returns a dict mapping each unique word (lowercased, stripped of punctuation) to its count. Example: word_frequency('the cat sat on the mat') == {'the': 2, 'cat': 1, 'sat': 1, 'on': 1, 'mat': 1}. Ignore empty tokens. Write text_utils.py with ALL functions you have implemented — do not discard previous work.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["text_utils.py"]
+    }
+  ]
+}

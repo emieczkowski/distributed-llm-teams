@@ -1,0 +1,228 @@
+{
+  "project": "Sales Data Analysis Pipeline",
+  "description": "Implement a sales data analysis pipeline with 20 functions. Tasks 1-2 form a 2-step dependency chain (remove_invalid imports from get_records). Tasks 3-20 are fully independent utility functions — each defines its own SAMPLE_DATA inline and can be implemented in any order.\n\nSALES_RECORDS (used in tasks 1-2):\n[\n  {\"product\": \"Widget\",    \"units\": 10, \"price\": 9.99,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Gadget\",    \"units\":  5, \"price\": 24.99, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Widget\",    \"units\":  8, \"price\": 9.99,  \"region\": \"East\",  \"month\": \"Jan\"},\n  {\"product\": \"Doohickey\", \"units\":  3, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Jan\"},\n  {\"product\": \"Gadget\",    \"units\": 12, \"price\": 24.99, \"region\": \"North\", \"month\": \"Feb\"},\n  {\"product\": \"Widget\",    \"units\":  0, \"price\": 9.99,  \"region\": \"South\", \"month\": \"Feb\"},\n  {\"product\": \"Sprocket\",  \"units\":  7, \"price\": 14.99, \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Doohickey\", \"units\":  4, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Widget\",    \"units\": 15, \"price\": 9.99,  \"region\": \"North\", \"month\": \"Mar\"},\n  {\"product\": \"Sprocket\",  \"units\":  9, \"price\": 14.99, \"region\": \"South\", \"month\": \"Mar\"},\n  {\"product\": \"Gadget\",    \"units\":  6, \"price\": 24.99, \"region\": \"East\",  \"month\": \"Mar\"},\n  {\"product\": \"Doohickey\", \"units\":  2, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Mar\"}\n]\n\nSAMPLE_DATA (used in independent tasks 3-20):\n[\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]",
+  "repository": "repo",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement get_records function",
+      "description": "Create get_records.py containing get_records() -> list. Returns a hard-coded list of 12 sales records as a module-level constant SALES_RECORDS. Each record is a dict with keys: product (str), units (int), price (float), region (str), month (str). The list includes one invalid record where units == 0. Use exactly this data:\n\nSALES_RECORDS = [\n  {\"product\": \"Widget\",    \"units\": 10, \"price\": 9.99,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Gadget\",    \"units\":  5, \"price\": 24.99, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Widget\",    \"units\":  8, \"price\": 9.99,  \"region\": \"East\",  \"month\": \"Jan\"},\n  {\"product\": \"Doohickey\", \"units\":  3, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Jan\"},\n  {\"product\": \"Gadget\",    \"units\": 12, \"price\": 24.99, \"region\": \"North\", \"month\": \"Feb\"},\n  {\"product\": \"Widget\",    \"units\":  0, \"price\": 9.99,  \"region\": \"South\", \"month\": \"Feb\"},\n  {\"product\": \"Sprocket\",  \"units\":  7, \"price\": 14.99, \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Doohickey\", \"units\":  4, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Widget\",    \"units\": 15, \"price\": 9.99,  \"region\": \"North\", \"month\": \"Mar\"},\n  {\"product\": \"Sprocket\",  \"units\":  9, \"price\": 14.99, \"region\": \"South\", \"month\": \"Mar\"},\n  {\"product\": \"Gadget\",    \"units\":  6, \"price\": 24.99, \"region\": \"East\",  \"month\": \"Mar\"},\n  {\"product\": \"Doohickey\", \"units\":  2, \"price\": 49.99, \"region\": \"West\",  \"month\": \"Mar\"}\n]\n\nThe function simply returns SALES_RECORDS. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["get_records.py"]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement remove_invalid function",
+      "description": "Create remove_invalid.py containing remove_invalid() -> list. Calls get_records() imported from get_records.py and returns only the records where units > 0, discarding any record with units == 0. Include a one-line docstring. REQUIRES task-1 (get_records) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 2,
+      "dependencies": ["task-1"],
+      "files": ["remove_invalid.py"]
+    },
+    {
+      "id": "task-3",
+      "title": "Implement compute_line_revenue function",
+      "description": "Create compute_line_revenue.py containing compute_line_revenue(record: dict) -> float. Returns record[\"units\"] * record[\"price\"] for a single sales record. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["compute_line_revenue.py"]
+    },
+    {
+      "id": "task-4",
+      "title": "Implement total_units function",
+      "description": "Create total_units.py containing total_units(records: list) -> int. Returns the sum of units across all records in the list. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["total_units.py"]
+    },
+    {
+      "id": "task-5",
+      "title": "Implement average_price function",
+      "description": "Create average_price.py containing average_price(records: list) -> float. Returns the mean of the price field across all records. Raise ValueError if records is empty. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["average_price.py"]
+    },
+    {
+      "id": "task-6",
+      "title": "Implement max_units_record function",
+      "description": "Create max_units_record.py containing max_units_record(records: list) -> dict. Returns the record with the highest units value. Raise ValueError if records is empty. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["max_units_record.py"]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement min_price_record function",
+      "description": "Create min_price_record.py containing min_price_record(records: list) -> dict. Returns the record with the lowest price value. Raise ValueError if records is empty. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["min_price_record.py"]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement distinct_products function",
+      "description": "Create distinct_products.py containing distinct_products(records: list) -> list. Returns a sorted list of unique product names found in records. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["distinct_products.py"]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement distinct_regions function",
+      "description": "Create distinct_regions.py containing distinct_regions(records: list) -> list. Returns a sorted list of unique region names found in records. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["distinct_regions.py"]
+    },
+    {
+      "id": "task-10",
+      "title": "Implement distinct_months function",
+      "description": "Create distinct_months.py containing distinct_months(records: list) -> list. Returns the unique month values from records in the order they first appear (not sorted). Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["distinct_months.py"]
+    },
+    {
+      "id": "task-11",
+      "title": "Implement filter_by_product function",
+      "description": "Create filter_by_product.py containing filter_by_product(records: list, product: str) -> list. Returns only records where record[\"product\"] == product. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["filter_by_product.py"]
+    },
+    {
+      "id": "task-12",
+      "title": "Implement filter_by_region function",
+      "description": "Create filter_by_region.py containing filter_by_region(records: list, region: str) -> list. Returns only records where record[\"region\"] == region. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["filter_by_region.py"]
+    },
+    {
+      "id": "task-13",
+      "title": "Implement filter_by_month function",
+      "description": "Create filter_by_month.py containing filter_by_month(records: list, month: str) -> list. Returns only records where record[\"month\"] == month. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["filter_by_month.py"]
+    },
+    {
+      "id": "task-14",
+      "title": "Implement count_by_product function",
+      "description": "Create count_by_product.py containing count_by_product(records: list) -> dict. Returns a dict mapping each product name to the number of records for that product. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["count_by_product.py"]
+    },
+    {
+      "id": "task-15",
+      "title": "Implement count_by_region function",
+      "description": "Create count_by_region.py containing count_by_region(records: list) -> dict. Returns a dict mapping each region name to the number of records for that region. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["count_by_region.py"]
+    },
+    {
+      "id": "task-16",
+      "title": "Implement count_by_month function",
+      "description": "Create count_by_month.py containing count_by_month(records: list) -> dict. Returns a dict mapping each month to the number of records for that month. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["count_by_month.py"]
+    },
+    {
+      "id": "task-17",
+      "title": "Implement records_with_units_above function",
+      "description": "Create records_with_units_above.py containing records_with_units_above(records: list, threshold: int) -> list. Returns records where units > threshold. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["records_with_units_above.py"]
+    },
+    {
+      "id": "task-18",
+      "title": "Implement records_with_price_below function",
+      "description": "Create records_with_price_below.py containing records_with_price_below(records: list, threshold: float) -> list. Returns records where price < threshold. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["records_with_price_below.py"]
+    },
+    {
+      "id": "task-19",
+      "title": "Implement sort_by_units function",
+      "description": "Create sort_by_units.py containing sort_by_units(records: list) -> list. Returns a new list of records sorted in descending order by units (highest first). Do not modify the original list. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["sort_by_units.py"]
+    },
+    {
+      "id": "task-20",
+      "title": "Implement sort_by_price function",
+      "description": "Create sort_by_price.py containing sort_by_price(records: list) -> list. Returns a new list of records sorted in ascending order by price (lowest first). Do not modify the original list. Include a one-line docstring. Define SAMPLE_DATA at module level for testing:\nSAMPLE_DATA = [\n  {\"product\": \"Alpha\", \"units\": 10, \"price\": 5.0,  \"region\": \"North\", \"month\": \"Jan\"},\n  {\"product\": \"Beta\",  \"units\":  5, \"price\": 12.0, \"region\": \"South\", \"month\": \"Jan\"},\n  {\"product\": \"Alpha\", \"units\":  8, \"price\": 5.0,  \"region\": \"East\",  \"month\": \"Feb\"},\n  {\"product\": \"Gamma\", \"units\":  3, \"price\": 20.0, \"region\": \"West\",  \"month\": \"Feb\"},\n  {\"product\": \"Beta\",  \"units\": 12, \"price\": 12.0, \"region\": \"North\", \"month\": \"Mar\"}\n]\nNo dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["sort_by_price.py"]
+    }
+  ],
+  "success_criteria": "All 20 functions implemented in separate files. Tasks 1-2 form a 2-step chain (remove_invalid calls get_records). Tasks 3-20 are fully independent, each with SAMPLE_DATA defined inline."
+}

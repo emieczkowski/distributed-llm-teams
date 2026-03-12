@@ -1,0 +1,228 @@
+{
+  "project": "Math Utils Library",
+  "description": "Implement a math utility library with 20 functions. Tasks 1-10 form a sequential dependency chain — each function imports from the one before it and must be completed in order. Tasks 11-20 are fully independent and can be done at any time in any order.\n\nFILE PLACEMENT (CRITICAL): Each task creates exactly ONE .py file. Place every file directly in the repo root — do NOT create subdirectories or packages (no __init__.py, no subfolders). For example, task-1 creates repo/add.py, task-2 creates repo/safe_add.py, etc. The test suite imports directly from these flat files.",
+  "repository": "repo",
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Implement add function",
+      "description": "Create add.py containing add(a: float, b: float) -> float. Returns a + b. Include a one-line docstring. No dependencies — this is the foundation of the chain.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["add.py"]
+    },
+    {
+      "id": "task-2",
+      "title": "Implement safe_add function",
+      "description": "Create safe_add.py containing safe_add(a: float, b: float) -> float. Validates that both a and b are int or float (raise TypeError if not), then delegates to add(a, b) imported from add.py. Include a one-line docstring. REQUIRES task-1 (add) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 2,
+      "dependencies": ["task-1"],
+      "files": ["safe_add.py"]
+    },
+    {
+      "id": "task-3",
+      "title": "Implement sum_list function",
+      "description": "Create sum_list.py containing sum_list(lst: list) -> float. Iterates over lst and accumulates a total using safe_add(total, x) imported from safe_add.py. Returns 0.0 for an empty list. Include a one-line docstring. REQUIRES task-2 (safe_add) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 3,
+      "dependencies": ["task-2"],
+      "files": ["sum_list.py"]
+    },
+    {
+      "id": "task-4",
+      "title": "Implement mean function",
+      "description": "Create mean.py containing mean(lst: list) -> float. Computes the arithmetic mean by calling sum_list(lst) imported from sum_list.py and dividing by len(lst). Raise ValueError if lst is empty. Include a one-line docstring. REQUIRES task-3 (sum_list) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 4,
+      "dependencies": ["task-3"],
+      "files": ["mean.py"]
+    },
+    {
+      "id": "task-5",
+      "title": "Implement variance function",
+      "description": "Create variance.py containing variance(lst: list) -> float. Computes population variance as sum((x - m)**2 for x in lst) / len(lst) where m = mean(lst) imported from mean.py. Raise ValueError if lst is empty. Include a one-line docstring. REQUIRES task-4 (mean) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 5,
+      "dependencies": ["task-4"],
+      "files": ["variance.py"]
+    },
+    {
+      "id": "task-6",
+      "title": "Implement std_dev function",
+      "description": "Create std_dev.py containing std_dev(lst: list) -> float. Computes population standard deviation as variance(lst) ** 0.5, calling variance imported from variance.py. Raise ValueError if lst is empty. Include a one-line docstring. REQUIRES task-5 (variance) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 6,
+      "dependencies": ["task-5"],
+      "files": ["std_dev.py"]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement z_score function",
+      "description": "Create z_score.py containing z_score(x: float, lst: list) -> float. Computes the z-score of x relative to lst as (x - mean(lst)) / std_dev(lst). Import mean from mean.py and std_dev from std_dev.py. Raise ValueError if std_dev is zero. Include a one-line docstring. REQUIRES task-4 (mean) AND task-6 (std_dev) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 7,
+      "dependencies": ["task-4", "task-6"],
+      "files": ["z_score.py"]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement normalize function",
+      "description": "Create normalize.py containing normalize(lst: list) -> list. Returns a new list where each element x is replaced by z_score(x, lst) imported from z_score.py. Raise ValueError if lst is empty or all values are identical. Include a one-line docstring. REQUIRES task-7 (z_score) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 8,
+      "dependencies": ["task-7"],
+      "files": ["normalize.py"]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement outlier_mask function",
+      "description": "Create outlier_mask.py containing outlier_mask(lst: list, threshold: float = 2.0) -> list. Returns a boolean list where each entry is True if the corresponding z-score exceeds threshold in absolute value. Uses normalize(lst) imported from normalize.py: [abs(z) > threshold for z in normalize(lst)]. Raise ValueError if lst is too small to normalize. Include a one-line docstring. REQUIRES task-8 (normalize) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 9,
+      "dependencies": ["task-8"],
+      "files": ["outlier_mask.py"]
+    },
+    {
+      "id": "task-10",
+      "title": "Implement filter_outliers function",
+      "description": "Create filter_outliers.py containing filter_outliers(lst: list, threshold: float = 2.0) -> list. Returns a new list with outliers removed by using outlier_mask(lst, threshold) imported from outlier_mask.py: [x for x, is_out in zip(lst, outlier_mask(lst, threshold)) if not is_out]. Raise ValueError if lst is empty. Include a one-line docstring. REQUIRES task-9 (outlier_mask) to be completed first.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 10,
+      "dependencies": ["task-9"],
+      "files": ["filter_outliers.py"]
+    },
+    {
+      "id": "task-11",
+      "title": "Implement subtract function",
+      "description": "Create subtract.py containing subtract(a: float, b: float) -> float. Returns a - b. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["subtract.py"]
+    },
+    {
+      "id": "task-12",
+      "title": "Implement multiply function",
+      "description": "Create multiply.py containing multiply(a: float, b: float) -> float. Returns a * b. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["multiply.py"]
+    },
+    {
+      "id": "task-13",
+      "title": "Implement divide function",
+      "description": "Create divide.py containing divide(a: float, b: float) -> float. Returns a / b. Raise ValueError if b is zero. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["divide.py"]
+    },
+    {
+      "id": "task-14",
+      "title": "Implement abs_val function",
+      "description": "Create abs_val.py containing abs_val(x: float) -> float. Returns the absolute value of x without using the built-in abs(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["abs_val.py"]
+    },
+    {
+      "id": "task-15",
+      "title": "Implement is_even function",
+      "description": "Create is_even.py containing is_even(n: int) -> bool. Returns True if n is even, False otherwise. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["is_even.py"]
+    },
+    {
+      "id": "task-16",
+      "title": "Implement clamp function",
+      "description": "Create clamp.py containing clamp(x: float, lo: float, hi: float) -> float. Returns x clamped to the range [lo, hi]. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["clamp.py"]
+    },
+    {
+      "id": "task-17",
+      "title": "Implement sign function",
+      "description": "Create sign.py containing sign(x: float) -> int. Returns 1 if x > 0, -1 if x < 0, 0 if x == 0. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["sign.py"]
+    },
+    {
+      "id": "task-18",
+      "title": "Implement max_val function",
+      "description": "Create max_val.py containing max_val(a: float, b: float) -> float. Returns the larger of a and b without using the built-in max(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["max_val.py"]
+    },
+    {
+      "id": "task-19",
+      "title": "Implement min_val function",
+      "description": "Create min_val.py containing min_val(a: float, b: float) -> float. Returns the smaller of a and b without using the built-in min(). Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["min_val.py"]
+    },
+    {
+      "id": "task-20",
+      "title": "Implement modulo function",
+      "description": "Create modulo.py containing modulo(a: float, b: float) -> float. Returns a % b. Raise ValueError if b is zero. Include a one-line docstring. No dependencies on other tasks.",
+      "status": "pending",
+      "owner": null,
+      "assigned_by": null,
+      "priority": 1,
+      "dependencies": [],
+      "files": ["modulo.py"]
+    }
+  ],
+  "success_criteria": "All 20 functions implemented. Tasks 1-10 form a sequential dependency chain (each imports from the previous); tasks 11-20 are fully independent. A pre-written test suite is already in the repo as test_suite.py — run <run_tests /> to see results. All tests must pass before marking a task complete."
+}

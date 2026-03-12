@@ -1,0 +1,30 @@
+{
+  "task_id": "data_pipeline",
+  "category": "sequential",
+  "project_description": "Build a data processing pipeline that transforms raw CSV sales data into a final analytics report. The pipeline has five stages that must run in order because each stage consumes the output of the previous one: (1) read raw CSV files and parse them into structured records, validating data types, (2) clean the parsed records by removing duplicates, handling missing values, and normalizing formats, (3) enrich the cleaned data by computing derived fields like total revenue, average order value, and customer lifetime value, (4) aggregate the enriched data into summary statistics grouped by region, product category, and time period, and (5) generate the final HTML report with charts and tables from the aggregated summaries. Each stage's input is the previous stage's output.",
+  "ground_truth": {
+    "expected_subtasks": [
+      {"id": "parse", "description": "Read and parse raw CSV files into records"},
+      {"id": "clean", "description": "Clean and normalize parsed records"},
+      {"id": "enrich", "description": "Compute derived fields from cleaned data"},
+      {"id": "aggregate", "description": "Aggregate enriched data into summaries"},
+      {"id": "report", "description": "Generate HTML report from aggregated data"}
+    ],
+    "expected_dependencies": [
+      ["parse", "clean"],
+      ["clean", "enrich"],
+      ["enrich", "aggregate"],
+      ["aggregate", "report"]
+    ],
+    "expected_phases": {
+      "1": ["parse"],
+      "2": ["clean"],
+      "3": ["enrich"],
+      "4": ["aggregate"],
+      "5": ["report"]
+    },
+    "optimal_num_workers": 1,
+    "min_num_workers": 1,
+    "parallelism_ratio": 0.0
+  }
+}

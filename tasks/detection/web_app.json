@@ -1,0 +1,30 @@
+{
+  "task_id": "web_app",
+  "category": "mixed",
+  "project_description": "Build a web application for a team task tracker. The project needs: (1) a shared configuration module that defines database connection settings, API keys, and app constants used by all other components, (2) a user management feature with registration, login, and profile pages, (3) a task board feature with create, edit, delete, and drag-to-reorder functionality, (4) a notifications feature with email and in-app alerts, and (5) a dashboard that aggregates data from user management, the task board, and notifications into summary widgets and charts. The config module must be built first since every other component imports it. The user management, task board, and notifications features are independent of each other. The dashboard depends on all three features being complete.",
+  "ground_truth": {
+    "expected_subtasks": [
+      {"id": "config", "description": "Shared configuration module"},
+      {"id": "users", "description": "User management feature"},
+      {"id": "tasks", "description": "Task board feature"},
+      {"id": "notifications", "description": "Notifications feature"},
+      {"id": "dashboard", "description": "Dashboard aggregating all features"}
+    ],
+    "expected_dependencies": [
+      ["config", "users"],
+      ["config", "tasks"],
+      ["config", "notifications"],
+      ["users", "dashboard"],
+      ["tasks", "dashboard"],
+      ["notifications", "dashboard"]
+    ],
+    "expected_phases": {
+      "1": ["config"],
+      "2": ["users", "tasks", "notifications"],
+      "3": ["dashboard"]
+    },
+    "optimal_num_workers": 3,
+    "min_num_workers": 2,
+    "parallelism_ratio": 0.4
+  }
+}

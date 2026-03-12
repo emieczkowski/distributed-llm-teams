@@ -1,6 +1,6 @@
 # distributed-llm-teams
 
-A research framework for studying how multi-agent LLM teams scale with team size. Simulates software engineering teams (optional lead + N developer agents) collaborating on coding tasks, with experiments designed around Amdahl's Law to measure how task parallelizability affects speedup as team size grows.
+A research framework for studying how multi-agent LLM teams scale with team size and coordination structure. Simulates software engineering teams (optional lead + N developer agents) collaborating on coding tasks.
 
 ## Setup
 

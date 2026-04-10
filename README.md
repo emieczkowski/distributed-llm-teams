@@ -86,15 +86,15 @@ python scripts/run_amdahl_experiment.py --tasks tasks/amdahl_svgutils
 ### Provider / model selection
 
 ```bash
-python scripts/run_amdahl_experiment.py --provider openai --model gpt-4o
-python scripts/run_amdahl_experiment.py --provider google --model gemini-2.0-flash
+python scripts/run_amdahl_experiment.py --provider openai --model gpt-5.2
+python scripts/run_amdahl_experiment.py --provider google --model gemini-3-flash-preview
 ```
 
 Results are saved to `runs/<provider_model>/<task_type>_<mode>_<timestamp>/`.
 
 ## Analyzing Results
 
-Full analysis scripts coming soon!
+Run cells in `analyze_experiments.ipynb` using the preprocessed run data in `data` to visualize each figure from the paper.
 
 ## Project Structure
 

@@ -94,11 +94,7 @@ Results are saved to `runs/<provider_model>/<task_type>_<mode>_<timestamp>/`.
 
 ## Analyzing Results
 
-Open `analyze_experiments.ipynb` to visualize speedup curves, compare observed vs. Amdahl-predicted scaling, and plot coordination overhead across conditions.
-
-```bash
-jupyter notebook analyze_experiments.ipynb
-```
+Full analysis scripts coming soon!
 
 ## Project Structure
 
